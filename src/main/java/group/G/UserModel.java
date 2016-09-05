@@ -6,6 +6,9 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 @Entity
@@ -27,10 +30,13 @@ public class UserModel implements Serializable {
 		return this.id;
 	}
 
+	@JsonProperty
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
 
+	// Don't serialzie password
+	@JsonIgnore
 	public String getPass() {
 		return this.pass;
 	}

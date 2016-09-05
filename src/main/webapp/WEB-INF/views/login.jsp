@@ -5,7 +5,7 @@ User ID : <input id="id" type="text" name="id" /> <br>
 Password: <input id="pass" type="password" name="pass" /> <br>
 <input id="login" type="button" value="Login"/>
 <input id="signup" type="button" value="Sign Up" /> <br>
-<%= session.getId() %>
+DEBUG: Your JSessionID: <%= session.getId() %>
 </body>
 
 <script>
@@ -18,8 +18,13 @@ function init() {
 	var xhttp = new XMLHttpRequest();
 	
 	xhttp.onreadystatechange = function() {
-		if(this.readyState == 4 && this.status == 200)
-			alert(this.responseText);
+		if(this.readyState == 4 && this.status == 200) {
+			var x = this.responseText;
+			if (x.trim() == '')
+				alert("Nothing Found");
+			else
+				alert(x);
+		}
 	}
 
 	loginButton.onclick = function() {

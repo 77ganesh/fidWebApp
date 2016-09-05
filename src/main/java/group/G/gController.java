@@ -52,33 +52,28 @@ public final class gController {
 		// TODO - Avoid bad programming design 
 		UserModel tFromDB = dao.findById(t.getId());
 		if(tFromDB != null) {
-			tFromDB.setPass(null);
-			model.addAttribute("myUser", t);
-		}
-		return tFromDB;
+			if (tFromDB.getPass().equals(t.getPass()) == true) {
+				model.addAttribute("myUser", tFromDB);
+				return tFromDB;
+				}
+			}
+		return null;
 	}
 
 	@RequestMapping("/logout")
-	public @ResponseBpdy String logout(SessionStatus sessionStatus) {
+	public @ResponseBody String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
-		return "logout";
+		return "logout sucess";
+	}
+
+	@RequestMapping("/user")
+	public @ResponseBody UserModel 
+		user (@ModelAttribute("myUser") UserModel t) {
+		return t;
 	}
 
 	@RequestMapping("/dash")
-	public @ResponseBody UserModel 
-		dash (@ModelAttribute("myUser") UserModel user) {
-		return user;
+	public String dash() {
+		return "dash";
 	}
-
-
-	// Helper POJO class for sending json responses
-	private class gJsonResponse {
-		private String status, msg;
-
-		public gJsonResponse(String status, String msg) {
-			this.status = status;
-			this.msg = msg; 
-		}
-	}
-
 }
