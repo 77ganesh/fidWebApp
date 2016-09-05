@@ -1,12 +1,12 @@
 package group.G;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Controller
+@RestController
 public final class gController {
 
 	private AbstractDao dao;
@@ -27,8 +27,12 @@ public final class gController {
 	}
 
 	@RequestMapping("/test")
-	public String funny() {
-		dao.save(new UserModel("a","b", "c"));
+	public String funny(ModelMap model) {
+		//dao.save(new UserModel("a","b", "c"));
+		UserModel t = dao.findById("a");
+		//UserModel t = new UserModel("a");
+		//dao.delete(t);
+		model.addAttribute("t", t.toString());
 		return "funny";
 	}
 

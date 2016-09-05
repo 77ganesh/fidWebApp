@@ -5,7 +5,6 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Entity
 @Table(name="users")
@@ -57,6 +56,9 @@ public class UserModel {
 	public UserModel(String id) {
 		this.id = id;
 	}
+
+	// No arg constructor required by hibernate
+	public UserModel() { }
 	// End Constructors
 
 
