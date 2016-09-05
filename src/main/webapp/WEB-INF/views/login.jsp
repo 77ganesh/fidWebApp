@@ -1,10 +1,10 @@
 <html>
 <body>
-<h2>FidWebApp - as</h2>
+<h2>FidWebApp</h2>
 User ID : <input id="id" type="text" name="id" /> <br>
 Password: <input id="pass" type="password" name="pass" /> <br>
 <input id="login" type="button" value="Login"/>
-<input id="signup" type="button" value="Sign Up" /> <br>
+<input id="signup" type="button" value="Sign Up" onclick="alert('Yet to implement')" /> <br>
 <p id="UserMessage"> </p>
 </body>
 
