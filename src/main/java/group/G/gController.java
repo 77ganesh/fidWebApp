@@ -29,10 +29,10 @@ public final class gController {
 	@RequestMapping("/test")
 	public String funny(ModelMap model) {
 		//dao.save(new UserModel("a","b", "c"));
-		UserModel t = dao.findById("a");
+		UserModel t = dao.findById("luffy");
 		//UserModel t = new UserModel("a");
 		//dao.delete(t);
-		model.addAttribute("t", t.toString());
+		model.addAttribute("message", t.toString());
 		return "funny";
 	}
 
