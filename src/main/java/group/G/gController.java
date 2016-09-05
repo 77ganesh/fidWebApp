@@ -21,30 +21,9 @@ public final class gController {
 		this.dao = dao;
 	}
 
-	@RequestMapping("/hellow")
-	public String hellow() {
-		return "hellow";
-	}
-
 	@RequestMapping(value={"/","/login"})
 	public String login() {
 		return "login";
-	}
-
-	@RequestMapping("/test")
-	public String funny(ModelMap model) {
-		//dao.save(new UserModel("a","b", "c"));
-		UserModel t = dao.findById("luffy");
-		//UserModel t = new UserModel("a");
-		//dao.delete(t);
-		model.addAttribute("message", t);
-		return "funny";
-	}
-
-	@RequestMapping("/tj")
-	public @ResponseBody UserModel fun2() {
-		UserModel t = new UserModel("robin","batman","pikachu");
-		return t;
 	}
 
 	@RequestMapping("/auth")
@@ -67,8 +46,7 @@ public final class gController {
 	}
 
 	@RequestMapping("/user")
-	public @ResponseBody UserModel 
-		user (@ModelAttribute("myUser") UserModel t) {
+	public @ResponseBody UserModel user(@ModelAttribute("myUser") UserModel t) {
 		return t;
 	}
 
