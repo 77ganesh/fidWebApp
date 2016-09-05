@@ -39,6 +39,28 @@ public final class gController {
 		return null;
 	}
 
+	@RequestMapping("/updateCity")
+	public @ResponseBody UserModel updateCity(@RequestBody UserModel t, @ModelAttribute("myUser") UserModel m) {
+		if( t.getId().equals(m.getId()) ) {
+			m.setCity(t.getCity());
+			dao.update(m);
+			return m;
+		}
+		// Else
+		return null;
+	}
+
+	@RequestMapping("/updatePass")
+	public @ResponseBody UserModel updatePass(@RequestBody UserModel t, @ModelAttribute("myUser") UserModel m) {
+		if( t.getId().equals(m.getId()) ) {
+			m.setPass(t.getPass());
+			dao.update(m);
+			return m;
+		}
+		// Else
+		return null;
+	}
+
 	@RequestMapping("/logout")
 	public @ResponseBody String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();

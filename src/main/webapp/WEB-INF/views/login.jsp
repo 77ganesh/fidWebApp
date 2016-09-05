@@ -5,25 +5,32 @@ User ID : <input id="id" type="text" name="id" /> <br>
 Password: <input id="pass" type="password" name="pass" /> <br>
 <input id="login" type="button" value="Login"/>
 <input id="signup" type="button" value="Sign Up" /> <br>
-DEBUG: Your JSessionID: <%= session.getId() %>
+<p id="UserMessage"> </p>
 </body>
 
 <script>
 document.body.onload = init;
+
+function loginSuccess() {
+	window.location="./dash";
+}
 
 function init() {
 	var loginButton = document.getElementById("login");
 	var idInput = document.getElementById("id");
 	var passInput = document.getElementById("pass");
 	var xhttp = new XMLHttpRequest();
+	var messageBox = document.getElementById("UserMessage");
 	
 	xhttp.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			var x = this.responseText;
 			if (x.trim() == '')
-				alert("Nothing Found");
-			else
-				alert(x);
+				messageBox.innerHTML = "Login Failed";
+			else {
+				messageBox.innerHTML = "Login Success. Redirecting";
+				loginSuccess();
+			}
 		}
 	}
 
