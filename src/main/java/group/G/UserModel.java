@@ -6,9 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name="users")
-public class UserModel {
+public class UserModel implements Serializable {
 
 	@Id
 	private String id;
