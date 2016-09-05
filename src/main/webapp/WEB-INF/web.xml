@@ -16,7 +16,7 @@
 
   <servlet-mapping>
   	<servlet-name>main</servlet-name>
-  	<url-pattern>/main/*</url-pattern>
+  	<url-pattern>/</url-pattern>
   </servlet-mapping>
 
   <!-- Simple Servlet -->
