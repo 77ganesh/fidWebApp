@@ -19,14 +19,4 @@
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
 
-  <!-- Simple Servlet -->
-  <servlet>
-  	<servlet-name>hr</servlet-name>
-  	<servlet-class>group.G.MainController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>hr</servlet-name>
-  	<url-pattern>/hr</url-pattern>
-  </servlet-mapping>
-
 </web-app>
